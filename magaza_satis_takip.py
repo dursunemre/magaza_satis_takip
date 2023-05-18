@@ -116,6 +116,15 @@ def main():
         if a == "k":
             break
 
+        while True:
+
+            a = input("belirli bir mağaza/satıcı satış tutarı değeri için k'ye , toplam satış tutarları için l'ye, çıkmak için q basın")
+            if a == "k":
+                satis.magaza_satis_tutar(satislar)
+            elif a == "l":
+                print("magaza adı-çalışan bilgisi , satış tutarı\n",'\n'.join([' '.join([str(item) for item in row]) for row in satis.__str__(satislar)]))
+            elif a == "q":
+                break
 
 
 
