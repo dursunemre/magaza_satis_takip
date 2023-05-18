@@ -59,6 +59,29 @@ class Magaza:
                                 a += sum(satici_kontrol["satis tutarı"])
                         print("satış miktarı:", a)
 
+    def __str__(self, satislar):
+        magaza_tutar = {}
+        satici_tutar = {}
+
+        for magaza, satislar_magaza in satislar.items():
+            magaza_tutar[magaza] = 0
+            for satis in satislar_magaza:
+                satici = (satis["satici adi"], satis["satici cinsi"])
+                satis_tutari = sum(satis["satis tutarı"])
+                if satici in satici_tutar:
+                    satici_tutar[satici] += satis_tutari
+                else:
+                    satici_tutar[satici] = satis_tutari
+                magaza_tutar[magaza] += satis_tutari
+
+        c = []
+        for magaza, magaza_tutari in magaza_tutar.items():
+            c.append([magaza, magaza_tutari])
+        for satici, satici_tutari in satici_tutar.items():
+            c.append([satici, satici_tutari])
+
+        return c
+
 
 
 
