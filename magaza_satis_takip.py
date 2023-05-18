@@ -29,6 +29,36 @@ class Magaza:
     def set_satis_miktari(self, satis_miktari):
         self.__satis_miktari = satis_miktari
 
+    def magaza_satis_tutar(self, satislar):
+        while True:
+
+            magaza = input("satış değerlerini görmek istediğiniz magazanın adi(çıkmak için q basın):")
+            if magaza == "q":
+                break
+            for magaza_adi_bul in satislar:
+                if magaza_adi_bul == magaza:
+                    kontrol = input(
+                        "mağazanın toplam satış değerini görmek için 1'e mağazada satış yapan bir satıcının satış değerini görmek için 2'ye basın(çıkmak için q basın):")
+
+                    if kontrol == "q":
+                        break
+
+                    elif kontrol == "1":
+                        a = 0
+                        for tutar in satislar[magaza]:
+                            a += sum(tutar["satis tutarı"])
+                        print("satış miktarı:", a)
+
+                    elif kontrol == "2":
+                        a = 0
+                        satici = input("satici adi:")
+                        satici_cinsi = input("saticinin cinsi:")
+                        for satici_kontrol in satislar[magaza]:
+                            if satici == satici_kontrol["satici adi"] and satici_cinsi == satici_kontrol[
+                                "satici cinsi"]:
+                                a += sum(satici_kontrol["satis tutarı"])
+                        print("satış miktarı:", a)
+
 
 
 
