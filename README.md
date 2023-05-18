@@ -1,0 +1,1 @@
+# magaza_satis_takip
