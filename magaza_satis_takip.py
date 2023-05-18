@@ -82,6 +82,41 @@ class Magaza:
 
         return c
 
+def main():
+    satislar = {}
+    while True:
+        satis = Magaza(magaza_adi=" ",satici_adi=" ",satici_cinsi=" ",satis_miktari=" ")
+
+        satis.set_magaza_adi(input("satis yapilan magazanin adi:"))
+
+        satis.set_satici_adi(input("satis yapilan saticinin adi:"))
+
+        satis.set_satici_cinsi(input("satis yapilan saticinin cinsi:"))
+
+        satis.set_satis_miktari(int(input("satis miktari:")))
+
+        magaza = satis.get_magaza_adi()
+        ad = satis.get_satici_adi()
+        cins = satis.get_satici_cinsi()
+        tutar = satis.get_satis_miktari()
+
+        if magaza in satislar:
+            for kayit in satislar[magaza]:
+                if kayit['satici adi'] == ad and kayit['satici cinsi'] == cins:
+                    kayit['satis tutarı'].append(tutar)
+                    break
+                else:
+                    satislar[magaza].append({'satici adi': ad, 'satici cinsi': cins, 'satis tutarı': [tutar]})
+        else:
+            satislar[magaza] = [{'satici adi': ad, 'satici cinsi': cins, 'satis tutarı': [tutar]}]
+
+        a = input("çıkmak için k devam için l basın:")
+        if a not in ["k", "l"]:
+            a = input("lütfen geçerli bir deger girin:")
+        if a == "k":
+            break
+
+
 
 
 
